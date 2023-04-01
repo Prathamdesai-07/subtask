@@ -1,0 +1,50 @@
+// Online C compiler to run C program online
+#include <stdio.h>
+
+void main()
+{
+    int i;
+    scanf("%d", &i);
+    while(i--)
+    {
+        int points[3],flag=0, cnt=0;
+        for(int j=0; j<3; j++)
+        {
+            scanf("%d", &points[j]);
+        }
+        // printf("\n");
+        int answers[points[0]];
+        for(int j=0; j<points[0]; j++)
+        {
+            scanf("%d", &answers[j]);
+        }
+        for(int j=0;j<points[0]; j++)
+        {
+            if(answers[j]==1)
+            {
+                cnt++;
+            }
+        }
+        if(cnt==points[0])
+        {
+            flag=1;
+        }
+        if(answers[0]==0 || answers[1]==0)
+        {
+            printf("0");
+        }
+        else if((cnt>points[1])&&(cnt!=points[0]) || (cnt<points[1])&&(cnt!=points[0]))
+        {
+            printf("0");
+        }
+        else if(cnt==points[1])
+        {
+            printf("%d", points[2]);
+        }
+        else if(flag==1)
+        {
+            printf("100");
+        }
+        printf("\n");
+    }
+}
